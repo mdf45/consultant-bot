@@ -44,6 +44,8 @@ namespace Consultant.Bot.Data
 
                                 text += GetProductsText(products);
                             }
+
+                            await bot.AnswerCallbackQueryAsync(callback.Id, "Успешно");
                         }
                         catch(Exception e)
                         {
@@ -51,7 +53,6 @@ namespace Consultant.Bot.Data
                         }
 
                         await bot.EditMessageTextAsync(msg.Chat.Id, msg.MessageId, text, parseMode: ParseMode.Html, replyMarkup: BackMarkup);
-                        await bot.AnswerCallbackQueryAsync(callback.Id, "Успешно");
                     }
                 }
             },
