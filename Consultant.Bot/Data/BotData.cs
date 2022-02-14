@@ -45,9 +45,9 @@ namespace Consultant.Bot.Data
                                 text += GetProductsText(products);
                             }
                         }
-                        catch
+                        catch(Exception e)
                         {
-
+                            Console.WriteLine(e.Message);
                         }
 
                         await bot.EditMessageTextAsync(msg.Chat.Id, msg.MessageId, text, parseMode: ParseMode.Html, replyMarkup: BackMarkup);

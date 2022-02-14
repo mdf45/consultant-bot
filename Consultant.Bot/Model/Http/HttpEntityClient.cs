@@ -11,10 +11,14 @@ namespace Consultant.Bot.Model.Http
 
         public HttpEntityClient(Uri baseAddress, string privateApiKey)
         {
-            Client = new HttpClient()
+            var clientHandler = new HttpClientHandler
+            {
+                ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; }
+            };
+
+            Client = new HttpClient(clientHandler)
             {
                 BaseAddress = baseAddress,
-                DefaultRequestVersion = HttpVersion.Version20,
                 Timeout = TimeSpan.FromSeconds(2)
             };
 
