@@ -20,7 +20,7 @@ namespace Consultant.Bot
 
             var me = await bot.GetMeAsync();
 
-            Console.Title = me.Username;
+            Console.WriteLine($"@{me.Username} inited");
 
             Console.ReadKey();
 

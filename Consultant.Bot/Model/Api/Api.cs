@@ -13,6 +13,8 @@ namespace Consultant.Bot.Model
             var baseUrl = ConfigurationManager.AppSettings["BaseUrl"];
             var privateApiKey = ConfigurationManager.AppSettings["PrivateApiKey"];
 
+            Console.WriteLine($"PrivateApiKey: {privateApiKey}\nBaseUrl: {baseUrl}");
+
             Client = new HttpEntityClient(new Uri(baseUrl), privateApiKey);
         }
 
